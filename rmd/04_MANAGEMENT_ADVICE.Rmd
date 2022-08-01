@@ -1,0 +1,13 @@
+# INDIAN OCEAN STOCK - MANAGEMENT ADVICE
+
+**_Stock status_**. 
+
+**_Outlook_**. 
+
+**_Management advice_**.
+
+**_Fisheries overview_**.
+
++ **Main fisheries (mean annual catch `r paste(min(LAST_5_YEARS), max(LAST_5_YEARS), sep = "-")`)**: `r tolower(ES_SPECIES_INFORMATION$SPECIES)` are caught using `r NC_FISHERY_GROUP_RECENT_MEAN[1, tolower(FISHERY_GROUP)]` (`r NC_FISHERY_GROUP_RECENT_MEAN[1, PERCENT_CATCH]`%), followed by `r NC_FISHERY_GROUP_RECENT_MEAN[2, tolower(FISHERY_GROUP)]` (`r NC_FISHERY_GROUP_RECENT_MEAN[2, PERCENT_CATCH]`%) and `r NC_FISHERY_GROUP_RECENT_MEAN[3, tolower(FISHERY_GROUP)]` (`r NC_FISHERY_GROUP_RECENT_MEAN[3, PERCENT_CATCH]`%). The remaining catches taken with other gears contributed to `r NC_FISHERY_GROUP_RECENT_MEAN[4:nrow(NC_FISHERY_GROUP_RECENT_MEAN), sum(PERCENT_CATCH)]`% of the total catches in recent years (**Fig. \@ref(fig:NCBarplots)**).
+
++ **Main fleets (mean annual catch `r paste(min(LAST_5_YEARS), max(LAST_5_YEARS), sep = "-")`)**: the majority of `r tolower(ES_SPECIES_INFORMATION$SPECIES)` catches are attributed to vessels flagged to `r NC_FLEET_RECENT_MEAN[1, FLEET]` (`r NC_FLEET_RECENT_MEAN[1, PERCENT_CATCH]`%) followed by `r NC_FLEET_RECENT_MEAN[2, FLEET]` (`r NC_FLEET_RECENT_MEAN[2, PERCENT_CATCH]`%) and `r NC_FLEET_RECENT_MEAN[3, FLEET]` (`r NC_FLEET_RECENT_MEAN[3, PERCENT_CATCH]`%). The `r nrow(NC_FLEET_RECENT_MEAN) - 3` other fleets catching `r tolower(ES_SPECIES_INFORMATION$SPECIES)` contributed to `r  NC_FLEET_RECENT_MEAN[4:nrow(NC_FLEET_RECENT_MEAN), sum(PERCENT_CATCH)]`% of the total catch in recent years (**Fig. \@ref(fig:ParetoPlot)**).

@@ -1,0 +1,4 @@
+
+```{r PropTable, tab.cap = "Probability of stock status with respect to each of four quadrants of the Kobe plot. Percentages are calculated as the proportion of model terminal values that fall within each quadrant with model weights taken into account"}
+PROP_TABLE_FT
+```

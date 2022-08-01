@@ -1,0 +1,6 @@
+
+```{r StatusTable, tab.cap = paste("Status of ", tolower(ES_SPECIES_INFORMATION$SPECIES),  " (_", ES_SPECIES_INFORMATION$SPECIES_SCIENTIFIC, "_) in the Indian Ocean", sep = "")}
+STATUS_TABLE_CATCH_FT
+```
+
+<br>
