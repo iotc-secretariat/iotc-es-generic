@@ -3,7 +3,7 @@
 SPECIES_IMAGE = image_read(paste0("../inputs/charts/", ES_SPECIES_CODE, "_SOURCE.png"))
 
 # Add white border left+right
-SPECIES_IMAGE = image_border(SPECIES_IMAGE, "white", "3000x0")
+SPECIES_IMAGE = image_border(SPECIES_IMAGE, "white", "1000x0")
 
 # Export image
 image_write(SPECIES_IMAGE, path = paste0("../inputs/charts/", ES_SPECIES_CODE, ".png"), format = "png")

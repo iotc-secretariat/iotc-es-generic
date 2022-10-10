@@ -1,9 +1,9 @@
 
-```{r NCBarplots, fig.cap = paste("Annual time series of (a) cumulative nominal catches (t) by fishery and (b) individual nominal catches (t) by fishery group  for ", tolower(ES_SPECIES_INFORMATION$SPECIES), " during ", paste(FIRST_YEAR, LAST_YEAR, sep = "-"), sep = "")}
+```{r NCBarplots, fig.cap = paste0("Annual time series of (a) cumulative nominal catches (metric tons; t) by fishery and (b) individual nominal catches (metric tons; t) by fishery group for ", tolower(ES_SPECIES_INFORMATION$SPECIES), " during ", paste(FIRST_YEAR, LAST_YEAR, sep = "-"), ". Longline | Other: swordfish and sharks-targeted longlines; Other: all remaining fishing gears")}
 include_graphics(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_BARPLOT_FISHERY_LINEPLOT_FISHERY_GROUP.png"))
 ```
 
 
-```{r ParetoPlot, fig.cap = paste0("Mean annual catches (t) of ", tolower(ES_SPECIES_INFORMATION$SPECIES), " by fleet and fishery between ", min(LAST_5_YEARS), " and ", max(LAST_5_YEARS), ", with indication of cumulative catches by fleet")}
+```{r ParetoPlot, fig.cap = paste0("Mean annual catches (metric tons; t) of ", tolower(ES_SPECIES_INFORMATION$SPECIES), " by fleet and fishery between ", min(LAST_5_YEARS), " and ", max(LAST_5_YEARS), ", with indication of cumulative catches by fleet. Longline | Other: swordfish and sharks-targeted longlines; Other: all remaining fishing gears")}
 include_graphics(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PARETO_RECENT_FISHERY_FLEET.png"))
 ```

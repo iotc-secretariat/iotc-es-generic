@@ -1,5 +1,5 @@
 ---
-title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (2021) \nData Component"
+title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r STATISTICAL_YEAR`)"
 #author: "Author: [IOTC Secretariat](mailto:IOTC-Secretariat@fao.org)" 
 output:
   word_document2:
@@ -49,6 +49,9 @@ knit_hooks$set(
 \pagebreak
 
 ```{r child = '04_MANAGEMENT_ADVICE.Rmd'}
+```
+
+```{r child = '04_MANAGEMENT_ADVICE_ALB.Rmd', eval = FALSE}
 ```
 
 ```{r child = '05_DATA_CHARTS.Rmd'}

@@ -3,15 +3,16 @@ options(scipen = 100)
 
 # Period to be included in ES
 START_YEAR = 1950
-END_YEAR = 2020
+END_YEAR = 2021
 
 # General parameters
-ES_SPECIES_CODE = "COM"
-REPORT_YEAR     = 2022
-MEETING         = "SC25"
-LANGUAGE        = "E"
+ES_SPECIES_CODE  = "BLM"
+STATISTICAL_YEAR = 2021
+REPORT_YEAR      = 2022
+MEETING          = "WPB22"
+LANGUAGE         = "E"
   
-TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES01_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
+TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES06_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
 
 # Create output folder if not available
 if (!dir.exists(paste0("./outputs/", ES_SPECIES_CODE, "/charts/")))
