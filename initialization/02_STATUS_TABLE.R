@@ -20,8 +20,6 @@ STATUS_TABLE_CATCH_FT =
   flextable::fontsize(part = "header", size = 11) %>%
   flextable::fontsize(part = "body", size = 11) %>%
   flextable::fontsize(part = "footer", size = 3) %>%
-#  add_footer_lines(values = "") %>% 
-#  compose(i = 1, j = 1, value = as_paragraph(as_i("Note: ")), part = "footer") %>%
   bg(part = "header", bg = "lightgrey") %>%
   merge_at(j = "Area") %>%
   merge_at(j = "Status") %>%
@@ -30,7 +28,7 @@ STATUS_TABLE_CATCH_FT =
   align(part = "header", align = "center") %>%
   align(j = 3, align = "right", part = "body") %>%
   footnote(part = 'body', i = 1, j = "Area", value = as_paragraph("Stock boundaries defined as the IOTC area of competence"), ref_symbols = "1", inline = TRUE) %>%
-  footnote(part = 'body', i = 1, j = "Indicator", value = as_paragraph(paste0("Proportion of catch fully or partially estimated for ",  LAST_YEAR, ": ", PERCENTAGE_ESTIMATED_LAST_YEAR, "%")), ref_symbols = "2", inline = TRUE) %>%
+  footnote(part = 'body', i = 1, j = "Indicator", value = as_paragraph(paste0("Proportion of catch fully or partially estimated for ",  LAST_YEAR, ": ", PERCENT_LY_ESTIMATED, "%")), ref_symbols = "2", inline = TRUE) %>%
   footnote(part = 'header', j = "Status", value = as_paragraph("Status relates to the final year data are available for assessment"), ref_symbols = "3", inline = TRUE) %>%
   fix_border_issues() %>%
   autofit()

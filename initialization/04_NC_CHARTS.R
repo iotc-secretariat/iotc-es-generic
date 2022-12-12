@@ -38,12 +38,12 @@ NC_BARPLOT_FISHERY_LINEPLOT_FISHERY_GROUP =
 save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_BARPLOT_FISHERY_LINEPLOT_FISHERY_GROUP.png"), NC_BARPLOT_FISHERY_LINEPLOT_FISHERY_GROUP, 9.5, 4)
 
 # PARETO PLOT BY FISHERY GROUP AND FLEET ####
-NC_PARETO_RECENT_FISHERY_GROUP_FLEET = pareto.catch(NC_BSE[YEAR %in% LAST_5_YEARS], fill_by = C_FISHERY_GROUP,  categorize_by = C_FLEET_CODE, max_categories = 10, num_legend_rows = 2) + theme(legend.position = "bottom")
+NC_PARETO_RECENT_FISHERY_GROUP_FLEET = pareto.catch(NC[YEAR %in% LAST_5_YEARS], fill_by = C_FISHERY_GROUP,  categorize_by = C_FLEET_CODE, max_categories = 10, num_legend_rows = 2) + theme(legend.position = "bottom")
 
 save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PARETO_RECENT_FISHERY_GROUP_FLEET.png"), NC_PARETO_RECENT_FISHERY_GROUP_FLEET, 12, 6.75)
 
 # PARETO PLOT BY FISHERY AND FLEET ####
-NC_PARETO_RECENT_FISHERY_FLEET = pareto.catch(NC_BSE[YEAR %in% LAST_5_YEARS], fill_by = C_FISHERY,  categorize_by = C_FLEET_CODE, max_categories = 10, num_legend_rows = 2) + theme(legend.position = "bottom")
+NC_PARETO_RECENT_FISHERY_FLEET = pareto.catch(NC[YEAR %in% LAST_5_YEARS], fill_by = C_FISHERY,  categorize_by = C_FLEET_CODE, max_categories = 10, num_legend_rows = 2) + theme(legend.position = "bottom")
 
 save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PARETO_RECENT_FISHERY_FLEET.png"), NC_PARETO_RECENT_FISHERY_FLEET, 12, 6.75)
 

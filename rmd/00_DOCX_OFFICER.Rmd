@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 ```{r child = '02_STATUS_TABLE_DOCX.Rmd'}
 ```
 
-```{r child = '03_MANAGEMENT_ADVICE.Rmd'}
+```{r child = '03_MANAGEMENT_ADVICE.Rmd', eval = FALSE}
 ```
 
 ```{r child = '04_DATA_CHARTS.Rmd'}

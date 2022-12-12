@@ -55,5 +55,4 @@ STATUS_TABLE_CATCH_FT =
   width(j = "Status", width = 1) %>%
   fix_border_issues()
 
-
 print("NC status table initialized!")
