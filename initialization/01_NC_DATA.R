@@ -3,10 +3,10 @@ print("Initializing NC data...")
 # DATA EXTRACTION ####
 
 ## IOTC species ####
-if (ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "SWO", "YFT"))
+if (ES_SPECIES_CODE %in% c("BET", "SKJ", "SWO", "YFT"))
   NC = NC_raised(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR)
 
-if (ES_SPECIES_CODE %in% c("BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")) 
+if (ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")) 
   NC = NC_est(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR)
 
 ## Elasmobranch species ####
