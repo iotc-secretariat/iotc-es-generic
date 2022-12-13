@@ -4,27 +4,23 @@ print("Initializing NC data...")
 
 ## IOTC species ####
 if (ES_SPECIES_CODE %in% c("BET", "SKJ", "SWO", "YFT"))
-  NC = NC_raised(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR)
+  NC = NC_raised(species_codes = ES_SPECIES_CODE, years = FIRST_YEAR:LAST_YEAR)
 
 if (ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")) 
-  NC = NC_est(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR)
+  NC = NC_est(species_codes = ES_SPECIES_CODE, years = FIRST_YEAR:LAST_YEAR)
 
 ## Elasmobranch species ####
 # Extracts catches for the species and its aggregates
 SPECIES_AGGREGATES = data.table(read.xlsx("../inputs/data/SPECIES_CODES_AGGREGATES.xlsx"))
 
 if (ES_SPECIES_CODE %in% unique(SPECIES_AGGREGATES$SPECIES_CODE)) {
-  NC                = NC_raw(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR, factorize_results = FALSE)
+  NC                = NC_raw(species_codes = ES_SPECIES_CODE, years = FIRST_YEAR:LAST_YEAR, factorize_results = FALSE)
   SPECIES_CODES_NEI = SPECIES_AGGREGATES[SPECIES_CODE == ES_SPECIES_CODE, SPECIES_CODE_NEI]
-  NC_NEI            = NC_raw(species_codes = SPECIES_CODES_NEI, years = START_YEAR:END_YEAR, factorize_results = FALSE)
+  NC_NEI            = NC_raw(species_codes = SPECIES_CODES_NEI, years = FIRST_YEAR:LAST_YEAR, factorize_results = FALSE)
   } 
 
 # SPECIES INFORMATION ####
 ES_SPECIES_INFORMATION = unique(NC[, .(SPECIES_CODE, SPECIES, SPECIES_SCIENTIFIC)])
-
-FIRST_YEAR   = first_year(NC$YEAR)
-LAST_YEAR    = last_year(NC$YEAR)
-LAST_5_YEARS = last_5_years(NC$YEAR)
 
 NC_LAST_YEAR    = round(NC[YEAR == LAST_YEAR, sum(CATCH)])
 NC_LAST_5_YEARS = round(NC[YEAR %in% LAST_5_YEARS, sum(CATCH/5)])
@@ -38,7 +34,7 @@ if (!ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KA
 
 # NC REPORTED vs. ESTIMATED IN LAST YEAR
 NC_LY                = NC[YEAR == END_YEAR, sum(CATCH)]
-NC_LY_REPORTED       = data_quality(species_code = ES_SPECIES_CODE, year_from = END_YEAR, year_to = END_YEAR)[NC == 0, sum(CATCH)]
+NC_LY_REPORTED       = data_quality(species_code = ES_SPECIES_CODE, year_from = LAST_YEAR, year_to = LAST_YEAR)[NC == 0, sum(CATCH)]
 NC_LY_ESTIMATED      = NC_LY - NC_LY_REPORTED
 PERCENT_LY_ESTIMATED = round(NC_LY_ESTIMATED / NC_LY * 100, 1)
 

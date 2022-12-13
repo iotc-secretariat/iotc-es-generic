@@ -2,11 +2,12 @@
 options(scipen = 100)
 
 # Period to be included in ES
-START_YEAR = 1950
-END_YEAR = 2021
+FIRST_YEAR = 1950
+LAST_YEAR = 2021
+LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # General parameters
-ES_SPECIES_CODE  = "BSH"
+ES_SPECIES_CODE  = "BTH"
 REPORT_YEAR      = 2022
 MEETING          = "SC25"
 LANGUAGE         = "E"
