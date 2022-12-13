@@ -16,6 +16,7 @@ SPECIES_AGGREGATES = data.table(read.xlsx("../inputs/data/SPECIES_CODES_AGGREGAT
 if (ES_SPECIES_CODE %in% unique(SPECIES_AGGREGATES$SPECIES_CODE)) {
   NC                = NC_raw(species_codes = ES_SPECIES_CODE, years = FIRST_YEAR:LAST_YEAR, factorize_results = FALSE)
   SPECIES_CODES_NEI = SPECIES_AGGREGATES[SPECIES_CODE == ES_SPECIES_CODE, SPECIES_CODE_NEI]
+  LIST_SPECIES_NEI  = paste0(unique(SPECIES_AGGREGATES[SPECIES_CODE == ES_SPECIES_CODE, paste(SPECIES_CODE_NEI, SPECIES_NEI, sep = ": ")]), collapse = "; ")
   NC_NEI            = NC_raw(species_codes = SPECIES_CODES_NEI, years = FIRST_YEAR:LAST_YEAR, factorize_results = FALSE)
   } 
 
@@ -33,7 +34,7 @@ if (!ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KA
 }
 
 # NC REPORTED vs. ESTIMATED IN LAST YEAR
-NC_LY                = NC[YEAR == END_YEAR, sum(CATCH)]
+NC_LY                = NC[YEAR == LAST_YEAR, sum(CATCH)]
 NC_LY_REPORTED       = data_quality(species_code = ES_SPECIES_CODE, year_from = LAST_YEAR, year_to = LAST_YEAR)[NC == 0, sum(CATCH)]
 NC_LY_ESTIMATED      = NC_LY - NC_LY_REPORTED
 PERCENT_LY_ESTIMATED = round(NC_LY_ESTIMATED / NC_LY * 100, 1)

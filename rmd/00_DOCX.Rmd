@@ -1,5 +1,5 @@
 ---
-title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r STATISTICAL_YEAR`)"
+title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r LAST_YEAR`)"
 ---
   
 ```{r general_options, echo=FALSE}

@@ -7,7 +7,7 @@ LAST_YEAR = 2021
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # General parameters
-ES_SPECIES_CODE  = "BTH"
+ES_SPECIES_CODE  = "BSH"
 REPORT_YEAR      = 2022
 MEETING          = "SC25"
 LANGUAGE         = "E"

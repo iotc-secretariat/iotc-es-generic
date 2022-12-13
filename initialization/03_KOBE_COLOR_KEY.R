@@ -1,7 +1,7 @@
 
 PROP_TABLE = data.frame(`Colour key` = c("Stock subject to overfishing (FYear / FMSY > 1)", "Stock not subject to overfishing (FYear / FMSY < 1)", "Not assessed / Uncertain"),
-                        `Stock overfished (SBYear / SBMSY < 1)` = c('X%', 'Y%', ''),
-                        `Stock not overfished (SBYear / SBMSY > 1)` = c('W%', 'Z%', ''), check.names = FALSE)
+                        `Stock overfished (SBYear / SBMSY < 1)` = c('', '', ''),
+                        `Stock not overfished (SBYear / SBMSY > 1)` = c('', '', ''), check.names = FALSE)
 
 PROP_TABLE_FT =
   PROP_TABLE %>%
