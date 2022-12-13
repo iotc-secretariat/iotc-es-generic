@@ -6,7 +6,7 @@ START_YEAR = 1950
 END_YEAR = 2021
 
 # General parameters
-ES_SPECIES_CODE  = "ALB"
+ES_SPECIES_CODE  = "BSH"
 REPORT_YEAR      = 2022
 MEETING          = "SC25"
 LANGUAGE         = "E"

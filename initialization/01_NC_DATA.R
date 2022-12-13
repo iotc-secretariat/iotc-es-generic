@@ -14,10 +14,10 @@ if (ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW
 SPECIES_AGGREGATES = data.table(read.xlsx("../inputs/data/SPECIES_CODES_AGGREGATES.xlsx"))
 
 if (ES_SPECIES_CODE %in% unique(SPECIES_AGGREGATES$SPECIES_CODE)) {
-  NC                = NC_raw(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR)
+  NC                = NC_raw(species_codes = ES_SPECIES_CODE, years = START_YEAR:END_YEAR, factorize_results = FALSE)
   SPECIES_CODES_NEI = SPECIES_AGGREGATES[SPECIES_CODE == ES_SPECIES_CODE, SPECIES_CODE_NEI]
-  NC_NEI            = NC_raw(species_codes = SPECIES_CODES_NEI, years = START_YEAR:END_YEAR)
-} 
+  NC_NEI            = NC_raw(species_codes = SPECIES_CODES_NEI, years = START_YEAR:END_YEAR, factorize_results = FALSE)
+  } 
 
 # SPECIES INFORMATION ####
 ES_SPECIES_INFORMATION = unique(NC[, .(SPECIES_CODE, SPECIES, SPECIES_SCIENTIFIC)])
@@ -28,6 +28,13 @@ LAST_5_YEARS = last_5_years(NC$YEAR)
 
 NC_LAST_YEAR    = round(NC[YEAR == LAST_YEAR, sum(CATCH)])
 NC_LAST_5_YEARS = round(NC[YEAR %in% LAST_5_YEARS, sum(CATCH/5)])
+
+# AGGREGATE SPECIES
+if (!ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
+  NC_NEI_LAST_YEAR    = round(NC_NEI[YEAR == LAST_YEAR, sum(CATCH)])
+  NC_NEI_LAST_5_YEARS = round(NC_NEI[YEAR %in% LAST_5_YEARS, sum(CATCH/5)]) 
+  
+}
 
 # NC REPORTED vs. ESTIMATED IN LAST YEAR
 NC_LY                = NC[YEAR == END_YEAR, sum(CATCH)]
