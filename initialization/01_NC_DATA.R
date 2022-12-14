@@ -27,7 +27,7 @@ NC_LAST_YEAR    = round(NC[YEAR == LAST_YEAR, sum(CATCH)])
 NC_LAST_5_YEARS = round(NC[YEAR %in% LAST_5_YEARS, sum(CATCH/5)])
 
 # AGGREGATE SPECIES
-if (!ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
+if (!ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "YFT", "SWO", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
   NC_NEI_LAST_YEAR    = round(NC_NEI[YEAR == LAST_YEAR, sum(CATCH)])
   NC_NEI_LAST_5_YEARS = round(NC_NEI[YEAR %in% LAST_5_YEARS, sum(CATCH/5)]) 
   

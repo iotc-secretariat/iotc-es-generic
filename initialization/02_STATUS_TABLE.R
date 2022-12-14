@@ -2,7 +2,7 @@ print("Initializing NC status table...")
 
 # Nominal catches for the status table
 
-if (ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
+if (ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "YFT", "SWO", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
 
 INDIC_NEI = FALSE
 STATUS_TABLE_CATCH = 
@@ -17,7 +17,7 @@ STATUS_TABLE_CATCH =
 
 }
 
-if (!ES_SPECIES_CODE %in% c("ALB", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
+if (!ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "YFT", "SWO", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")){
     
 INDIC_NEI = TRUE
 STATUS_TABLE_CATCH = 
@@ -47,8 +47,8 @@ STATUS_TABLE_CATCH_FT =
   border_outer(part = "all", border = fp_border(width = 2)) %>%
   align(part = "header", align = "center") %>%
   align(j = "Value", align = "right", part = "body") %>%
-  footnote(part = "header", j = "Area", value = as_paragraph("Stock boundaries defined as the IOTC area of competence"), ref_symbols = "1", inline = TRUE) %>%
-  footnote(part = 'body', i = 1, j = "Value", value = as_paragraph(paste0("Proportion of catch fully or partially estimated for ",  LAST_YEAR, ": ", PERCENT_LY_ESTIMATED, "%")), ref_symbols = "2", inline = TRUE) %>%
+  footnote(part = "body", i = 1, j = "Area", value = as_paragraph("Stock boundaries defined as the IOTC area of competence"), ref_symbols = "1", inline = TRUE) %>%
+  footnote(part = "body", i = 1, j = "Value", value = as_paragraph(paste0("Proportion of catch fully or partially estimated for ",  LAST_YEAR, ": ", PERCENT_LY_ESTIMATED, "%")), ref_symbols = "2", inline = TRUE) %>%
   flextable::font(part = "footer", fontname = "Calibri") %>%
   flextable::fontsize(part = "footer", size = 8) %>% 
   fix_border_issues() %>%
@@ -59,7 +59,8 @@ STATUS_TABLE_CATCH_FT =
   if (INDIC_NEI) {
     STATUS_TABLE_CATCH_FT = 
       STATUS_TABLE_CATCH_FT %>%
-      add_footer_lines(values = paste0("NEI includes all other shark catches reported to the IOTC Secretariat, which may contain this species, i.e., ", LIST_SPECIES_NEI)) 
+#      add_footer_lines(values = paste0("NEI includes all other shark catches reported to the IOTC Secretariat, which may contain this species, i.e., ", LIST_SPECIES_NEI))
+      footnote(part = "body", i = c(2, 4), j = "Value", value = as_paragraph(paste0("NEI includes all other shark catches reported to the IOTC Secretariat, which may contain this species, i.e., ", LIST_SPECIES_NEI)), ref_symbols = "3", inline = TRUE)
   }
 
 print("NC status table initialized!")

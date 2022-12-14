@@ -7,12 +7,13 @@ LAST_YEAR = 2021
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # General parameters
-ES_SPECIES_CODE  = "BSH"
+ES_SPECIES_CODE  = "FAL"
 REPORT_YEAR      = 2022
 MEETING          = "SC25"
+ES_NUMBER        = 21
 LANGUAGE         = "E"
-  
-TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES01_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
+
+TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
 
 # Create output folder if not available
 if (!dir.exists(paste0("./outputs/", ES_SPECIES_CODE, "/charts/")))
@@ -32,16 +33,16 @@ render("rmd/00_DOCX.Rmd",
        output_file   = paste0(TITLE, ".docx")
 )
 
-# OFFICEDOWN
+# OFFICEDOWN (TRIALS)
 
-render("rmd/00_DOCX.Rmd", 
-       output_format = rdocx_document(reference_docx = "./templates/doc_template.docx", 
-                                      page_size = list(orient = "portrait"), 
-                                      tables = list(caption = list(pre = "Tab. ", sep = ".")), 
-                                      plots  = list(caption = list(style = "Image caption", pre = "Fig. ", sep = ". "))), 
-       output_dir    = paste0("outputs/", ES_SPECIES_CODE, "/"), 
-       output_file   = paste0(TITLE, "_OFFICER.docx")
-)
+# render("rmd/00_DOCX.Rmd", 
+#        output_format = rdocx_document(reference_docx = "./templates/doc_template.docx", 
+#                                       page_size = list(orient = "portrait"), 
+#                                       tables = list(caption = list(pre = "Tab", sep = ".", fp_text = fp_text_lite(bold = TRUE))), 
+#                                       plots  = list(caption = list(style = "Figure", pre = "Fig. ", sep = ". "))), 
+#        output_dir    = paste0("outputs/", ES_SPECIES_CODE, "/"), 
+#        output_file   = paste0(TITLE, "_OFFICER.docx")
+# )
 
 # Explore template style
 # my_template = read_docx("./templates/doc_template.docx")
