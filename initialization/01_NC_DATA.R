@@ -58,4 +58,27 @@ NC_FLEET_RECENT_MEAN      = NC[YEAR %in% LAST_5_YEARS, .(CATCH = round(sum(CATCH
 NC_FLEET_RECENT_MEAN[, TOTAL := sum(CATCH)]
 NC_FLEET_RECENT_MEAN[, PERCENT_CATCH := round(CATCH/TOTAL*100, 1)]
 
+# Summary table
+
+if (ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "SWO", "YFT", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")) 
+  CATCH_DATA_TABLE = data.table(NC_LAST_YEAR                  = NC_LY, 
+                              NC_LAST_YEAR_REPORTED         = NC_LY_REPORTED, 
+                              NC_LAST_YEAR_ESTIMATED        = NC_LY_ESTIMATED, 
+                              PERCENT_LAST_YEAR_ESTIMATED   = PERCENT_LY_ESTIMATED, 
+                              NC_LAST_5_YEARS               = NC_LAST_5_YEARS
+                                ) 
+
+if (!ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "SWO", "YFT", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT"))
+
+  CATCH_DATA_TABLE = data.table(NC_LAST_YEAR                  = round(NC_LY), 
+                                NC_LAST_YEAR_REPORTED         = round(NC_LY_REPORTED), 
+                                NC_LAST_YEAR_ESTIMATED        = round(NC_LY_ESTIMATED), 
+                                PERCENT_LAST_YEAR_ESTIMATED   = round(PERCENT_LY_ESTIMATED, 1), 
+                                NC_LAST_5_YEARS               = round(NC_LAST_5_YEARS), 
+                                NC_NEI_LAST_YEAR              = round(NC_NEI_LAST_YEAR), 
+                                NC_NEI_LAST_5_YEARS           = round(NC_NEI_LAST_5_YEARS)
+                             ) 
+
+write.xlsx(CATCH_DATA_TABLE, paste0("../outputs/", ES_SPECIES_CODE, "/CATCH_DATA_TABLE_", ES_SPECIES_CODE, ".xlsx"), colWidths = "auto")
+
 print("NC data initialized!")

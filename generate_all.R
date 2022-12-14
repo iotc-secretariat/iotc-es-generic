@@ -7,10 +7,10 @@ LAST_YEAR = 2021
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # General parameters
-ES_SPECIES_CODE  = "FAL"
+ES_SPECIES_CODE  = "BET"
 REPORT_YEAR      = 2022
 MEETING          = "SC25"
-ES_NUMBER        = 21
+ES_NUMBER        = 3
 LANGUAGE         = "E"
 
 TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
