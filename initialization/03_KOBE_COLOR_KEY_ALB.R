@@ -26,7 +26,8 @@ PROP_TABLE_FT =
   align(part = 'body',j = 2:3, align='center') %>%
   border_inner() %>%
   border_outer(border = fp_border(width = 2)) %>%
-  merge_at(i = 3, j = 2:3) %>%
+  merge_at(i = 3, j = 2:3) %>% 
+  fix_border_issues() %>% 
   autofit()
 
 

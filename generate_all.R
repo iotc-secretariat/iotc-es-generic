@@ -3,14 +3,14 @@ options(scipen = 100)
 
 # Period to be included in ES
 FIRST_YEAR = 1950
-LAST_YEAR = 2021
+LAST_YEAR = 2022
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # General parameters
-ES_SPECIES_CODE  = "BET"
+ES_SPECIES_CODE  = "YFT"
 REPORT_YEAR      = 2022
-MEETING          = "SC25"
-ES_NUMBER        = 3
+MEETING          = "WPTT25"
+ES_NUMBER        = 4
 LANGUAGE         = "E"
 
 TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
