@@ -66,7 +66,7 @@ block_section(sec_pr)
 ```{r child = '02_STATUS_TABLE_DOCX.Rmd'}
 ```
 
-```{r child = '03_KOBE_COLOR_TABLE_DOCX.Rmd'}
+```{r child = '03_KOBE_COLOR_TABLE_DOCX.Rmd', eval = FALSE}
 ```
 
 \pagebreak

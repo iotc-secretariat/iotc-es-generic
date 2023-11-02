@@ -1,4 +1,4 @@
-print("Initializing NC charts...")
+print("Initializing RC charts...")
 
 # BARPLOT BY FISHERY GROUP ####
 NC_BARPLOT_FISHERY_GROUP  = catch_bar(NC_YEARS_FISHERY_GROUP, C_FISHERY_GROUP, num_legend_rows = 2) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7))
@@ -47,4 +47,4 @@ NC_PARETO_RECENT_FISHERY_FLEET = pareto.catch(NC[YEAR %in% LAST_5_YEARS], fill_b
 
 save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PARETO_RECENT_FISHERY_FLEET.png"), NC_PARETO_RECENT_FISHERY_FLEET, 12, 6.75)
 
-print("NC charts initialized!")
+print("RC charts initialized!")

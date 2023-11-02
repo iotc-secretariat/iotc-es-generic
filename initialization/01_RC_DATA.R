@@ -1,4 +1,4 @@
-print("Initializing NC data...")
+print("Initializing RC data...")
 
 # DATA EXTRACTION ####
 
@@ -61,7 +61,7 @@ NC_FLEET_RECENT_MEAN[, PERCENT_CATCH := round(CATCH/TOTAL*100, 1)]
 # Summary table
 
 if (ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "SWO", "YFT", "BLM", "BUM", "MLS", "SFA", "BLT", "FRI", "KAW", "LOT", "COM", "GUT")) 
-  CATCH_DATA_TABLE = data.table(NC_LAST_YEAR                  = NC_LY, 
+  CATCH_DATA_TABLE = data.table(NC_LAST_YEAR                = NC_LY, 
                               NC_LAST_YEAR_REPORTED         = NC_LY_REPORTED, 
                               NC_LAST_YEAR_ESTIMATED        = NC_LY_ESTIMATED, 
                               PERCENT_LAST_YEAR_ESTIMATED   = PERCENT_LY_ESTIMATED, 
@@ -81,4 +81,4 @@ if (!ES_SPECIES_CODE %in% c("ALB", "BET", "SKJ", "SWO", "YFT", "BLM", "BUM", "ML
 
 write.xlsx(CATCH_DATA_TABLE, paste0("../outputs/", ES_SPECIES_CODE, "/CATCH_DATA_TABLE_", ES_SPECIES_CODE, ".xlsx"), colWidths = "auto")
 
-print("NC data initialized!")
+print("RC data initialized!")

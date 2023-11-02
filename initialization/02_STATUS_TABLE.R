@@ -1,4 +1,4 @@
-print("Initializing NC status table...")
+print("Initializing RC status table...")
 
 # Nominal catches for the status table
 
@@ -63,4 +63,4 @@ STATUS_TABLE_CATCH_FT =
       footnote(part = "body", i = c(2, 4), j = "Value", value = as_paragraph(paste0("NEI includes all other shark catches reported to the IOTC Secretariat, which may contain this species, i.e., ", LIST_SPECIES_NEI)), ref_symbols = "3", inline = TRUE)
   }
 
-print("NC status table initialized!")
+print("RC status table initialized!")

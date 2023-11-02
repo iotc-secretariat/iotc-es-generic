@@ -7,14 +7,13 @@ LAST_YEAR = 2022
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # ES NUMBERING
-ES_NUMBERING = data.table(SPECIES_CODE = c("ALB", "BET", "SKJ", "YFT", "SBF", "BLT", "FRI", "KAW", "LOT", "GUT", "COM", "BLM", "BUM", "MLS", "SFA", "SWO"), 
-                          NUMBER     = 1:16)
+ES_NUMBERING = data.frame(SPECIES_CODE = c("ALB", "BET", "SKJ", "YFT", "SBF", "BLT", "FRI", "KAW", "LOT", "GUT", "COM", "BLM", "BUM", "MLS", "SFA", "SWO", "BSH", "OCS", "SPL", "SMA", "FAL", "BTH", "PTH"), NUMBER = 1:23)
 
 # General parameters
 ES_SPECIES_CODE  = "YFT"
 REPORT_YEAR      = 2023
 MEETING          = "WPTT25"
-ES_NUMBER        = ES_NUMBERING[SPECIES_CODE == ES_SPECIES_CODE, sprintf("%02d", NUMBER)]
+ES_NUMBER        = sprintf("%02d", ES_NUMBERING[ES_NUMBERING$SPECIES_CODE == ES_SPECIES_CODE,  "NUMBER"])
 LANGUAGE         = "E"
 
 TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE)
@@ -31,5 +30,5 @@ setwd("..")
 # OFFICEDOWN
 render("rmd/00_DOCX.Rmd", 
        output_dir    = paste0("outputs/", ES_SPECIES_CODE, "/"), 
-       output_file   = paste0(TITLE, "_OFFICER.docx")
+       output_file   = paste0(TITLE, ".docx")
        )
