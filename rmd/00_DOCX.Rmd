@@ -1,22 +1,64 @@
 ---
 title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r LAST_YEAR`)"
+output:
+  officedown::rdocx_document:
+    reference_docx: "../templates/rdoc_template.docx"
+reference_num: true
+#csl: iotc.csl
+#bibliography: WGFAD.bib
+#link-citations: yes
 ---
   
-```{r general_options, echo=FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE,
-  tidy = TRUE,
-  tidy.opts = list(width.cutoff = 60),
-  size = 'small'
-)
-
-knit_hooks$set(
-  inline = function(x) {
-    prettyNum(x, big.mark = "")
-  }
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      tab.cap.pre = "Tab. ", 
+                      tab.cap.sep = ". ", 
+                      tab.cap.style ="Table Caption", 
+                      #                      tab.cap.fp_text = officer::fp_text_lite(italic = TRUE, bold = TRUE), 
+                      fig.cap = TRUE, 
+                      fig.cap.pre = "Fig. ", 
+                      fig.cap.sep = ". ", 
+                      fig.cap.style = "Caption label",
+                      dpi = 300
 )
 ```
 
+```{r Headers, echo = FALSE}
+logo.file = file.path("../templates/FAO_IOTC_LOGOS.png")
+
+bl_header_no_logo = function(txt, position) {
+  block_list(
+    fpar(values = txt, fp_p = fp_par(text.align = position, border.bottom = fp_border()), fp_t = fp_text_lite(color = "black", bold = FALSE, font.size = 12))
+  )
+}
+
+bl_header_with_logo = function(txt, position) {
+  block_list(
+    fpar(external_img(src = logo.file, height = 0.71, width = 7.19, unit = "in"), 
+    ftext = txt, 
+         fp_p = fp_par(text.align = position, border.bottom = fp_border()), 
+         fp_t = fp_text_lite(color = "black", bold = FALSE, font.size = 12)))
+}
+
+sec_pr = prop_section(
+  header_first = bl_header_with_logo(TITLE, "right"),
+  header_default = bl_header_no_logo(TITLE, "right")
+)
+```
+
+```{r TextStyles, echo = FALSE}
+fp = fp_par(
+  text.align = "center", 
+  padding.bottom = 20, padding.top = 120, 
+  border.bottom = fp_border())
+
+alert = fp_text(shading.color = "transparent", bold = TRUE, color = "red")
+underline = fp_text(underlined = TRUE)
+```
+
+```{r, echo = FALSE, eval = TRUE}
+block_section(sec_pr)
+```
 
 ```{r child = '01_SPECIES_IMAGE_DOCX.Rmd'}
 ```
@@ -32,15 +74,5 @@ knit_hooks$set(
 ```{r child = '04_MANAGEMENT_ADVICE.Rmd'}
 ```
 
-```{r child = '04_MANAGEMENT_ADVICE_ALB.Rmd', eval = FALSE}
-```
-
 ```{r child = '05_DATA_CHARTS.Rmd'}
 ```
-
-```{r child = '06_STATUS_CHARTS.Rmd', eval = FALSE}
-```
-
-```{r child = '07_KS2M_TABLE.Rmd', eval = FALSE}
-```
-

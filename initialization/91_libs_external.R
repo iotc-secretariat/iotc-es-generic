@@ -5,15 +5,8 @@ pacman::p_load(
   "scales",
   "openxlsx",
   "ggpubr",
-  "gridExtra",
   "rmarkdown",
   "knitr",
-  "bookdown",
   "officer",
-  "png",
-  "jpeg",
-  "rvg",
-  "officedown",
-  "patchwork",
-  "magick"
+  "officedown"
 )

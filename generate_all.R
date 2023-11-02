@@ -6,14 +6,18 @@ FIRST_YEAR = 1950
 LAST_YEAR = 2022
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
+# ES NUMBERING
+ES_NUMBERING = data.table(SPECIES_CODE = c("ALB", "BET", "SKJ", "YFT", "SBF", "BLT", "FRI", "KAW", "LOT", "GUT", "COM", "BLM", "BUM", "MLS", "SFA", "SWO"), 
+                          NUMBER     = 1:16)
+
 # General parameters
 ES_SPECIES_CODE  = "YFT"
-REPORT_YEAR      = 2022
+REPORT_YEAR      = 2023
 MEETING          = "WPTT25"
-ES_NUMBER        = 4
+ES_NUMBER        = ES_NUMBERING[SPECIES_CODE == ES_SPECIES_CODE, sprintf("%02d", NUMBER)]
 LANGUAGE         = "E"
 
-TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE, "_DATA")
+TITLE = paste0("IOTC-", REPORT_YEAR, "-", MEETING, "-ES", ES_NUMBER, "_", ES_SPECIES_CODE, "_", LANGUAGE)
 
 # Create output folder if not available
 if (!dir.exists(paste0("./outputs/", ES_SPECIES_CODE, "/charts/")))
@@ -24,29 +28,8 @@ setwd("initialization")
 source("00_CORE.R")
 setwd("..")
  
-# BOOKDOWN
+# OFFICEDOWN
 render("rmd/00_DOCX.Rmd", 
-       output_format = word_document2(reference_docx = "../templates/doc_template.docx", 
-                                      number_sections = FALSE, 
-                                      fig_caption = TRUE), 
        output_dir    = paste0("outputs/", ES_SPECIES_CODE, "/"), 
-       output_file   = paste0(TITLE, ".docx")
-)
-
-# OFFICEDOWN (TRIALS)
-
-# render("rmd/00_DOCX.Rmd", 
-#        output_format = rdocx_document(reference_docx = "./templates/doc_template.docx", 
-#                                       page_size = list(orient = "portrait"), 
-#                                       tables = list(caption = list(pre = "Tab", sep = ".", fp_text = fp_text_lite(bold = TRUE))), 
-#                                       plots  = list(caption = list(style = "Figure", pre = "Fig. ", sep = ". "))), 
-#        output_dir    = paste0("outputs/", ES_SPECIES_CODE, "/"), 
-#        output_file   = paste0(TITLE, "_OFFICER.docx")
-# )
-
-# Explore template style
-# my_template = read_docx("./templates/doc_template.docx")
-# styles_info(my_template, type = "paragraph")
-# styles_info(my_template, type = "table")
-# styles_info(my_template, type = "numbering")
-
+       output_file   = paste0(TITLE, "_OFFICER.docx")
+       )
