@@ -10,9 +10,9 @@ LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 ES_NUMBERING = data.frame(SPECIES_CODE = c("ALB", "BET", "SKJ", "YFT", "SBF", "BLT", "FRI", "KAW", "LOT", "GUT", "COM", "BLM", "BUM", "MLS", "SFA", "SWO", "BSH", "OCS", "SPL", "SMA", "FAL", "BTH", "PTH"), NUMBER = 1:23)
 
 # General parameters
-ES_SPECIES_CODE  = "YFT"
+ES_SPECIES_CODE  = "SKJ"
 REPORT_YEAR      = 2023
-MEETING          = "WPTT25"
+MEETING          = "SC26"
 ES_NUMBER        = sprintf("%02d", ES_NUMBERING[ES_NUMBERING$SPECIES_CODE == ES_SPECIES_CODE,  "NUMBER"])
 LANGUAGE         = "E"
 

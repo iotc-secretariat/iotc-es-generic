@@ -1,9 +1,9 @@
 print("Initializing RC charts...")
 
 # BARPLOT BY FISHERY GROUP ####
-NC_BARPLOT_FISHERY_GROUP  = catch_bar(NC_YEARS_FISHERY_GROUP, C_FISHERY_GROUP, num_legend_rows = 2) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7))
+NC_BARPLOT_FISHERY_GROUP  = catch_bar(NC_YEARS_FISHERY_GROUP, C_FISHERY_GROUP, num_legend_rows = 2) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7)) + scale_x_continuous(breaks = seq(1950, 2022, 10), labels = seq(1950, 2022, 10), expand = c(0, 0))
 
-NC_LINEPLOT_FISHERY_GROUP = catch_line(NC_YEARS_FISHERY_GROUP, C_FISHERY_GROUP, num_legend_rows = 2, plot_points = TRUE) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7))
+NC_LINEPLOT_FISHERY_GROUP = catch_line(NC_YEARS_FISHERY_GROUP, C_FISHERY_GROUP, num_legend_rows = 2, plot_points = TRUE) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7)) + scale_x_continuous(breaks = seq(1950, 2022, 10), labels = seq(1950, 2022, 10), expand = c(0, 0))
 
 NC_PLOTS_FISHERY_GROUP = 
     ggarrange(NC_BARPLOT_FISHERY_GROUP,
@@ -11,12 +11,13 @@ NC_PLOTS_FISHERY_GROUP =
           common.legend = TRUE,
           legend = "bottom",
           labels = list("a", "b"))
-save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PLOTS_FISHERY_GROUP.png"), NC_PLOTS_FISHERY_GROUP, 9.5, 4)
+
+save_plot(paste0("../outputs/", ES_SPECIES_CODE, "/charts/NC_PLOTS_FISHERY_GROUP.png"), NC_PLOTS_FISHERY_GROUP, 9.5, 4)  #9.5, 4
 
 # BARPLOT BY FISHERY ####
-NC_BARPLOT_FISHERY  = catch_bar(NC_YEARS_FISHERY, C_FISHERY, num_legend_rows = 2) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7))
+NC_BARPLOT_FISHERY  = catch_bar(NC_YEARS_FISHERY, C_FISHERY, num_legend_rows = 2) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7)) + scale_x_continuous(breaks = seq(1950, 2022, 10), labels = seq(1950, 2022, 10), expand = c(0, 0))
 
-NC_LINEPLOT_FISHERY = catch_line(NC_YEARS_FISHERY, C_FISHERY, num_legend_rows = 2, plot_points = TRUE) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7))
+NC_LINEPLOT_FISHERY = catch_line(NC_YEARS_FISHERY, C_FISHERY, num_legend_rows = 2, plot_points = TRUE) + theme(legend.position = "bottom", axis.text.x = element_text(size = 6), legend.text = element_text(size = 7)) + scale_x_continuous(breaks = seq(1950, 2022, 10), labels = seq(1950, 2022, 10), expand = c(0, 0))
 
 NC_PLOTS_FISHERY = 
   ggarrange(NC_BARPLOT_FISHERY,
