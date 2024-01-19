@@ -55,3 +55,4 @@ Thumbs.db
 /outputs/**/*.pptx
 /outputs/**/*.html
 /outputs/**/*.pdf
+/outputs/**/*.xlsx
