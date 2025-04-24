@@ -3,7 +3,7 @@ options(scipen = 100)
 
 # Period to be included in ES
 FIRST_YEAR = 1950
-LAST_YEAR = 2022
+LAST_YEAR = 2023
 LAST_5_YEARS = (LAST_YEAR-4):LAST_YEAR
 
 # ES NUMBERING
@@ -11,7 +11,7 @@ ES_NUMBERING = data.frame(SPECIES_CODE = c("ALB", "BET", "SKJ", "YFT", "SBF", "B
 
 # General parameters
 ES_SPECIES_CODE  = "SKJ"
-REPORT_YEAR      = 2023
+REPORT_YEAR      = 2024
 MEETING          = "SC26"
 ES_NUMBER        = sprintf("%02d", ES_NUMBERING[ES_NUMBERING$SPECIES_CODE == ES_SPECIES_CODE,  "NUMBER"])
 LANGUAGE         = "E"
