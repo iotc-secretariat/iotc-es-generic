@@ -10,8 +10,8 @@ UseSpacesForTab: Yes
 NumSpacesForTab: 2
 Encoding: UTF-8
 
-AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
-
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
