@@ -1,5 +1,12 @@
+```{r StatustableCaption}
+caption_content = as_paragraph(
+  "Status of ", tolower(ES_SPECIES_INFORMATION$SPECIES),  " (", as_i(ES_SPECIES_INFORMATION$SPECIES_SCIENTIFIC), ") in the Indian Ocean"
+  )
 
-```{r StatusTable, tab.cap = paste("Status of ", tolower(ES_SPECIES_INFORMATION$SPECIES),  " (_", ES_SPECIES_INFORMATION$SPECIES_SCIENTIFIC, "_) in the Indian Ocean", sep = "")}
+STATUS_TABLE_CATCH_FT = set_caption(STATUS_TABLE_CATCH_FT, caption = caption_content, html_escape = FALSE)
+```
+
+```{r StatusTable}
 STATUS_TABLE_CATCH_FT
 ```
 

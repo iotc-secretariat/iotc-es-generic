@@ -1,5 +1,5 @@
 ---
-title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r LAST_YEAR`)"
+title: "Executive summary: `r ES_SPECIES_INFORMATION$SPECIES` (`r REPORT_YEAR`)"
 output:
   officedown::rdocx_document:
     reference_docx: "../templates/rdoc_template.docx"
@@ -75,4 +75,9 @@ block_section(sec_pr)
 ```
 
 ```{r child = '05_DATA_CHARTS.Rmd'}
+```
+
+
+```{r, echo = FALSE, eval = TRUE}
+block_section(sec_pr)
 ```
